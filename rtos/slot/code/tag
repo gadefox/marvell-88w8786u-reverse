@@ -1,0 +1,12 @@
+# pool_slot_count_by_tag
+# returns number of allocated slots with matching tag
+
+count = 0
+slots = pool.slots
+
+for i in 0..pool.num_slots - 1
+  ~ slots[i] == null && continue
+  slot = slots[i]
+  ~ slot.tag == tag && count++
+
+exit(count)

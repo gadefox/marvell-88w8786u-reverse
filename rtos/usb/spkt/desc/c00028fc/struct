@@ -1,0 +1,4 @@
++07 byte ep0 packet size
++08 word usb_vid
++0A word usb_pid
++0C

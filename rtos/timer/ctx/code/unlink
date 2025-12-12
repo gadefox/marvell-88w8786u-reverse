@@ -1,0 +1,9 @@
+# timer_unlink_node
+
+node = *pnode
+node.id = 0
+*pnode = node.next
+
+mngr = C00011A8
+node.next = mngr.free_list
+mngr.free_list = node

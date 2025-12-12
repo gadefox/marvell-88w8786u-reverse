@@ -1,0 +1,16 @@
+# evt_usb_node_init
+
+ctx = 040000EC   # usb event node context
+ctx.handler = null
+
+node = 04002EE0  # usb event node
+node.name = ctx.name
+node.init = 0002698C
+node.handler14 = null
+node.handler18 = null
+node.handler1C = null
+node.handler20 = 00026A04
+node.dispatch = 00026820
+node.handler28 = 00026980
+
+evt_list_append_node(node)

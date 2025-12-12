@@ -1,0 +1,8 @@
+# timer_adjust_deltas
+
+while node != null:
+  ~ node.ticks < elapsed:
+    node.tickes = 0
+  !~:
+    node.ticks -= elapsed
+  node = node.next

@@ -1,0 +1,5 @@
+# gpio_init_pin4_input
+
+~ *C0001263 == 2:
+  gpio_init(4, false)
+  gpio_config(4, true, true)

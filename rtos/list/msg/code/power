@@ -1,0 +1,66 @@
+# msg_power_gate
+
+state = *C001B24C  # byte
+
+# uninitialized state
+~ (*C0001264 == 0 || *C001B244 == 0) && priority & 8:
+  list_merge(C001D510, C001D4FC)
+  msg_dispatch(msg)
+  msg_list_flush
+  exit(1)
+
+# busy - queue message
+~ state == 3 && priority & 8 && msg != null:
+  node = list_remove_head(C001D4E8)
+  ~ node == null && exit(1)
+
+  memcpy(node, msg, 20h)
+  list_append(C001D4FC, node)
+  exit(1)
+
+# normal processing
+# command-based priority modification
+~ priority & 8 && msg != null:
+  command = le32_to_cpu(msg.command)
+  switch command:
+    case 3 8 9:
+      priority = FF
+    case 0A 0B 10h 12h 35h:
+      priority &= ~4
+
+# check if we should proceed
+enabled_mask = le32_to_cpu(*C0001264)
+~ msg_priority_gate(priority, enabled_masks) == 0 && exit(0)
+
+~ command != 0:
+  node = list_remove_head(C001D4E8)
+  ~ node == null:
+    # no free buffer - execute callback immediately
+    ~ msg.callback != null && msg.callback(msg)
+  !~:
+    # buffer available - queue it
+    memcpy(node, msg, 20h)
+    list_append(C001D4FC, node)
+
+evt_ctx = C0001158
+evt_dispatch(evt_ctx.usb)
+
+reg_800028xx_update
+*C001B24C = 2  # byte; set state to 2 (NORMAL)
+
+gpio = *C0001268  # byte
+~ gpio == FF:
+  evt_dispatch(evt_ctx.usb)
+  msg_init(msg_new)
+  msg_dispatch(msg_new)
+~ gpio != FE && gpio_set_output(gpio, false)
+
+delay = *C0001269  # byte
+~ delay == FF && evt_dispatch(evt_ctx.usb) == 0 && exit(1)
+~ delay != FFh:
+  ticks = delay * *C0002204
+  delay = ticks / 1000
+  cycles = delay >> 10
+  ~ cycles != 0 && delay_cycles(cycles)
+
+msg_pool_alloc_new

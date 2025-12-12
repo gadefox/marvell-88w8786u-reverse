@@ -1,0 +1,5 @@
+# evt_handle20
+
+~ event == null && exit(1)
+~ event.handler20 == null && exit(1)
+return event.handler20(event, arg1, arg2, arg3)

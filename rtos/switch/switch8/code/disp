@@ -1,0 +1,25 @@
+# switch8_dispatch
+
+switch index:
+case 0:  # 0000E6BA
+  ~ param2 == 1 && fn_0000e8fc(0)
+case 1:  # 0000E6C2
+case 2:
+  ~ param2 == 0 && fn_0000e8fc(1)
+case 3:  # 0000E6CA
+  fn_0000e8fc(3)
+case 4:  # 0000E6CE
+  val = *C001C1FC
+  *param3 = val
+  ~ val != 0 && fn_0000e5c8
+  fn_0000e8fc(4)
+case 5:  # 0000E6BE
+case 8:
+  fn_0000e8fc(0)
+case 6:  # 0000E6E0
+  val = *C001C1FC
+  *param3 = val
+  ~ param2 == 4 && val != 0 && fn_0000e5c8
+  fn_0000e8fc(1)
+case 7:  # 0000E6F4
+  fn_0000e8fc(2)

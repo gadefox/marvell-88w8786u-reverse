@@ -1,0 +1,24 @@
++000 uint magic                  38333058
++004
++00C uint MAC address            if FFFFFFFF, then 02435000 is used instead
++010 word                        FFFF
++012 word MAC address            if FFFF, then 01FE is used instead
++014 word                        FFFF
++016
++030 word usb_pid                203C
++030 word usb_vid                1286h
++034
++048 uint block1 size in bytes   64
++04C uint block1 address         080h
++050
++058 uint                        0000032C
++05C uint block6 address         2F0
++060
++07C uint                        FFFF68F5
++080 byte[64]  block1
++0C0 byte[92]  block2
++11C byte[116] block3
++190 byte[92]  block4
++1EC byte[20]  block5
++200
++2F0 byte[272] block6

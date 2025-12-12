@@ -1,0 +1,4 @@
+# msg_priority_gate
+
+~ flags != FF && flags &= enabled_mask
+return flags

@@ -1,0 +1,14 @@
+# list_remove_head
+
+~ list == null && exit
+
+node = list.head
+~ node == null && exit
+
+list.head = node.next
+~ list.head == null && list.tail = null
+
+node.next = null
+
+list.num_nodes--
+~ list.min_count > list.num_nodes && list.min_count = list.num_nodes

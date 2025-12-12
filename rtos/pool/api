@@ -1,0 +1,3 @@
+00007820 pool_init                  see `init`
+00007F7C byte pool_get(ptr* pool)   see `get`
+00007F9C pool_empty                 see `empty`

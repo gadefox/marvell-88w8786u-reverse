@@ -1,0 +1,11 @@
+# timer_find_and_unlink_by_id
+
+~ id == 0 && exit(1)
+
+mngr = C00011A8
+node = mngr.active_list
+
+while true:
+  ~ node == null && exit(0)
+  ~ node.id == id && timer_unlink_node(&node); exit(1)
+  node = node.next

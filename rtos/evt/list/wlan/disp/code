@@ -1,0 +1,4 @@
+# event.dispatch
+
+ctx = C00011E0  # list event node context
+~ command == 20h && ctx.handler = handler

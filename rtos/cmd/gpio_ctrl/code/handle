@@ -1,0 +1,16 @@
+# gpio_control_handle
+
+# TODO:incomplete
+~ ? == 1 && gpio_control_deserialize; exit
+
+gpio_control_serialize
+~ ? != 1 && exit
+
+*C0001263 = ?
+gpio_init_pin4_input
+gpio_update_80002808_90000220
+
+evt_ctx = C0001158
+evt_dispatch(evt_ctx.usb, 9, 0)
+
+*C001B24C = 0

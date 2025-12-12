@@ -1,0 +1,10 @@
+~ slot.status != 0 && exit(1)
+
+pool = slot.pool
+slots = pool.slots
+
+for i in 0..pool.num_slots:
+  ~ slots[i] != slot && continue
+  ~ fn_03f01314(slot) == 0 && exit(0) || exit(1)
+
+assert  # error

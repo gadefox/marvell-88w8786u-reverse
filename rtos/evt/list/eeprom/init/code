@@ -1,0 +1,6 @@
+# event.init
+
+serial_detect_mode
+serial_write_enable
+serial_write_status_reg(0)
+serial_write_disable

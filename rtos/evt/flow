@@ -1,0 +1,32 @@
+               global event context C0001158               
+                             ↓                             
+                event handler list C0001188                
+                             ↓                             
+             ┌──────── event handlers ┬────────────┐       
+             ↓                        ↓            ↓       
+            usb ───────┐             wlan ───┐   eeprom    
+          04002EE0     ↓           040034FC  │  C001AE2C   
+             ↓      handler20 ◀─┐     ↓      │             
+   ┌────▶ context      ↓        │  context   │             
+   │      040000EC   submit     │  C00011E0  │             
+   │         ↓         ↓        │     ↓      │             
+ (1 4)    handler     dma       │  handler   │             
+ status   000099D0     ↓        │  000099EC  │             
+   ↑         ↓       ep-rx      │     ↓      │             
+handler    status      │        └── status   │             
+0000CA04   (1 4)       │           (2 3 5)   │             
+   ↑         │         │                     ↓             
+usb ctx      └──────── │ ──────────────▶ handler20         
+04000068               │                     ↓             
+   ↑                   │                   lists           
+dispatch               │                     ↓             
+   ↑                   │               ┌── status ───┐     
+  irq                  │              (1)           (4)    
+   ↑                   │               ↓             ↓     
+  dma                  │            commands        bulk   
+   ↑                   │            040034E8      040034D4 
+ ep-tx                 │               ↓             ↓     
+   ↑                   │              pool          pool   
+   └─────── USB ◀──────┘            0400024C      04000104 
+            ↑ ↓                                            
+            host                                           

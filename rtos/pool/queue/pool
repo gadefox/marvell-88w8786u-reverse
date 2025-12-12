@@ -1,0 +1,7 @@
++000 head
++00C node[5] nodes
++1D8
++1EC node tail of allocated list
++1F0 node head of free list
+----
+ 1F4h sizeof

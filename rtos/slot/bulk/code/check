@@ -1,0 +1,7 @@
+# usb_pool_data_tx_check_integrity1
+
+***
+mlme_slots = pool_get_allocated_count(040001B8)
+data_tx_slots = pool_get_allocated_count(04000104)
+tagged_count = pool_count_by_key(04000104, 8)
+return mlme_slots + data_tx_slots == tagged_count

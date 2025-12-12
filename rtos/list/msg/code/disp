@@ -1,0 +1,16 @@
+# msg_dispatch
+
+~ msg == null && exit
+
+slot = pool_alloc_slot(040002C4, C8, 0)
+~ slot == null && exit
+
+slot.tag = 2
+slot.data_offset = 1C
+memcpy(slot + 1C, msg, sizeof(msg))
+
+evt_ctx = C0001158                              # event context
+wlan_ctx = C00011E0                             # event wlan handler context
+wlan_ctx.handler(evt_ctx.wlan, slot, 0, 2)
+
+~ msg.callback != null & msg.callback(msg, sp)  # sp=stack pointer

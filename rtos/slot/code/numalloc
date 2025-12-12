@@ -1,0 +1,10 @@
+# pool_slot_num_allocated
+# get number of currently allocated slots
+
+count = 0
+slots = pool.slots
+
+for i in 0..pool.num_slots - 1
+  ~ slots[i] != null && count++
+
+exit(count)]

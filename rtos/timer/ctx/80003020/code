@@ -1,0 +1,4 @@
+# timer_hw_get_elapsed_neg
+
+val = *80003020 + 1
+return -val

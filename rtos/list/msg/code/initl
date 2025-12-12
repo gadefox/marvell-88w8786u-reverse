@@ -1,0 +1,29 @@
+# msg_init_lists
+# sizeof(list) = 14h
+# sizeof(node) = 20h
+# N = 6
+
+list = C001D4E8
+memclear(list,                    sizeof(list))
+memclear(list + sizeof(list),     sizeof(list))
+memclear(list + sizeof(list) * 2, sizeof(list))
+
+first =  list + sizeof(list) * 3
+for i in 0..N-1:
+  node = first + i * sizeof(node)
+  node.command = 0
+  node.state = 0
+  node.field09 = 0
+  node.field0A = 14h
+  node.field0B = 0
+  ~ i == 5 && node.next = null || node.next = node + sizeof(node)
+
+list.head = first
+list.tail = first + sizeof(node) * (N - 1)  # A0
+list.num_nodes = N
+list.max_count = N
+list.min_count = N
+
+table = C00014FC  # uint[]
+for i in 0..0:
+  table[i] = 0

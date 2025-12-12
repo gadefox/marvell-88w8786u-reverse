@@ -1,0 +1,8 @@
++00 ptr  next node in linked list
++04 word
++06 word
++08 uint
++0C byte
++0D
+----
+ 18h sizeof

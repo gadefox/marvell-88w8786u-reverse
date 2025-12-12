@@ -1,0 +1,24 @@
+# gpio_control_dispatch
+
+for block_i in 0..2:
+  block = blocks[block_i]
+  item = block[item_i]
+  ~ item.gpio >= 18 && continue
+
+  switch (item.case)
+    case 0:  # 00017CC0
+      gpio_init_output_and_set(item.gpio, *C0001500 != 0)
+    case 1:  # 00017CAC
+      gpio_init_output_and_set(item.gpio, *C0001500 == 0)
+    case 2:  # 00017CCA
+      gpio_init_cfg(item.gpio, item.cfg >> 4, item.cfg & 0F)
+    case 3:  # 00017CDE
+      gpio_9000024C_set_bits0_3(item.cfg & 0F)
+    case 4:  # 00017CD6
+      gpio_9000024C_set_bits4_7(item.cfg >> 4)
+    case 5:  # 00017D02
+      gpio_9000024C_set_bits0_3(item.cfg & 0F)
+      gpio_9000024C_set_bits4_7(item.cfg >> 4)
+  exit
+
+~ item_i in (0 6 7) && *C0001508 = item_i

@@ -1,0 +1,6 @@
++04 byte[] name
++08 ptr    handler
++0C uint   ep2_tx_count
++10 uint   ep1_tx_count
++14 bool   eeprom_flag
++18

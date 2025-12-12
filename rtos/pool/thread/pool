@@ -1,0 +1,7 @@
++000 head
++00C node[7] nodes
++4A4
++4BC node tail of allocated list
++4C0 node head of free list
+----
+ 4C4 sizeof

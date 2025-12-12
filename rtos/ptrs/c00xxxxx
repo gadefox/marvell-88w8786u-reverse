@@ -1,0 +1,48 @@
+C0001158 usb event node
+C000115C wlan event node
+C0001188 event list
+C00011C0 thread
+C00011C4
+C00011C8 queue
+C00011E0 event identifier
+C00011E4 event node
+C0001288 thread
+C0001290 queue
+C00012D0 struct (BGScan timer)
+C0002674 struct mempool-slot
+C0002676 mempool-slot size
+C0002690 thread
+C0002694
+C0002698 queue
+C0002788 thread
+C00028FC struct
+C0002904 
+C000291F
+C0002954
+C0002AA4 jump table
+C0002B00 desc1
+C0012700 desc2
+C0014700 desc3
+C0015700 desc4
+C0016700 desc5
+C0017100 desc6
+C0018100 desc7
+C0019900 desc8
+C0019F00 desc9
+C001A700 desc10
+C001AE2C event
+C001B29C queue
+C001B2A4 queue
+C001B858 timer
+C001CAF0 list
+C001CB04 list
+C001D4E8 list
+C001D4FC list
+C001D510 list
+C001DBD0 tree
+C001DE90 tree
+C001DEB8 tree
+C0024098 tree
+C00247B0 tree
+C00247FC timer
+C0027400 USB/DMA

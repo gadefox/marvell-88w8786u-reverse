@@ -1,0 +1,8 @@
+# evt_usb_init
+
+ctx = C0001158                              # events context
+~ ctx.usb != null && exit                   # initialized
+ctx.usb = evt_list_find_usb_and_init(0)
+
+evt_dispatch(ctx.usb,  20h, 000099D0)       # see `list/usb/ctx/hand`
+evt_dispatch(ctx.wlan, 20h, 000099EC)       # see `list/wlan/hand`

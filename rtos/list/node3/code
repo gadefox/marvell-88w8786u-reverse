@@ -1,0 +1,22 @@
+# node1_lists_init
+# sizeof(list) = 14h
+# sizeof(node) = 18h
+
+list1 = C001CAF0
+memclear(list1, sizeof(list))
+
+first = list1 - sizeof(node) * 2
+for i in 0..0:
+  node = first + i * sizeof(node)
+  node.next = node + sizeof(node)
+
+last = list1 - sizeof(node)
+last.next = null
+
+list1.tail = last
+list1.num_nodes = 2
+list1.max_count = 0
+list1.min_count = 2
+
+list2 = list1 + sizeof(list)
+list2.head = first

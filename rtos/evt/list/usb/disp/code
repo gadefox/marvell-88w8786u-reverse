@@ -1,0 +1,42 @@
+# event.dispatch
+
+usb_ctx = 04000068  # usb context
+evt_ctx = 040000EC  # usb event node context
+
+switch command:
+case 8:
+  ~ pool_count_by_key(04000104, 4) != 0 exit(1)
+  ~ pool_count_by_key(04000104, 2) != 0 exit(1)
+  exit(0)
+case 0D:  # 7 bytes payload
+  evt_ctx.eeprom_flag = false
+  serial_config
+  ~ serial_read(0) == 38333058:
+    val = serial_read(7C) >> 16     # (FFFF68F5 >> 16) = FFFF
+    ~ val != FFFF:
+      val = serial_read(14h) >> 16  # (FFFFFFFF >> 16) = FFFF
+      ~ val != FFFF && (val & 1) != 0 && evt_ctx.eeprom_flag = true
+  init_msg_buffer
+case 0F:
+  exit(1)
+case 14:
+  status = *userdata
+  ~ status == 1 && usb_alloc_and_submit_tx_transfer(1); exit  # EP1-TX
+  ~ status == 4 && usb_alloc_and_submit_tx_transfer(2) != null && exit  # EP2-TX
+  assert  # status != 1 && status != 4
+case 1B:
+  return pool_count_by_key(040002C4, 2)
+case 20h:  # 00026926
+  evt_ctx.handler = userdata
+case 23h:  # 0002692A
+  usb_endpoint_complete(2, 0)  # 2=end point
+  evt_ctx.ep2_tx_count = 0
+case 24h:  # 00026932
+  usb_alloc_and_submit_tx_transfer(2)
+case 25h:  # 0002693E
+  pool = usb_ctx.pool
+  return (pool.field8D << 8) | pool.dev_state
+case 26h:  # 00026948
+  ~ usb_ctx.suspend != 0:
+    delay  # 3 conditions
+    ~ evt_ctx.eeprom_flag && set_some_registers

@@ -1,0 +1,8 @@
++00 byte[20] name
++14 byte     num_cfgs
++15 byte
++16 word     num_slots
++18 ptr[]    slots
++1C cfg[]    configs
+----
+ 20h sizeof

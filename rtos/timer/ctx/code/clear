@@ -1,0 +1,7 @@
+# timer_clear
+
+mngr = C00011A8
+
+mngr.id_counter = 0
+mngr.active_list = 0
+mngr.free_list = 0

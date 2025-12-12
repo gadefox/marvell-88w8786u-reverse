@@ -1,0 +1,33 @@
+# usb_ctx.handler
+
+evt = 04002EE0  # usb event node
+ctx = 040000EC  # usb event node context
+
+ep = ev_arg & FF
+size = ev_arg >> 16
+slot = (buffer & ~FF) + 4
+
+~ ev_type == 100h:  # RX
+  ~ ep == 1 && pool_free_slot(slot)
+  ~ ep == 2 || ep == 3 pool_free_slot(buffer - 1C)
+  ***
+  fn_03f01fc8(1)
+
+~ ev_type == 200h:  # TX
+  ~ size == 0:
+    pool_slot_free(slot)
+    ~ ep == 2 && ctx.ep2_tx_count-- || ctx.ep1_tx_count--
+    usb_alloc_and_submit_tx_transfer(ep)
+  !~:
+    c0002568_increment_counters
+
+   ~ *buffer == $magic:  # uint
+      slot.data_offset += 4
+      slot.tag = 10h
+      ctx.handler(evt, slot, 0, 1)
+      ctx.ep1_tx_count--                    # EP1-TX
+      *C00021F8 = 1
+    !~:
+      slot.tag = 2
+      ctx.handler(evt, slot, 0, 4)
+      ~ ctx.ep2_tx_count-- == 0 && assert   # EP2-TX

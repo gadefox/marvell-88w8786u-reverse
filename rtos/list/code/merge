@@ -1,0 +1,9 @@
+# list_merge
+
+~ list1 == null && exit
+~ list2 == null && exit
+
+while true:
+  node = list_remove_read(list2)
+  ~ node == null && break
+  list_append(list1, node)

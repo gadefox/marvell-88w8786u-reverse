@@ -1,0 +1,12 @@
+0     1=write
+1     1=read
+6..8  address mode; (mode + 3) << 6
+10    0=ready; 1=operation in progress
+
+FEDCBA9876543210 example:
+0000010000000010 serial_read
+0000010000000001 serial_write
+0000010000001000 serial_get_status
+0000010000001010 serial_write_disable
+0000010000010100 serial_block_erase64
+0000010000000100 serial_write_status_reg

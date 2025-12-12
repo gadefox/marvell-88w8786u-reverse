@@ -1,0 +1,9 @@
+flags = *80002800
+~ flags >> 4 != 0 && flags &= ~E0; flags |= 10h
+
+table = 04002FD8
+for i in 0..:
+  ~ flags == 0 && break
+  callback = table[i]
+  ~ flags & 1 && callback != null && callback(i, flags)
+  flags >>= 1

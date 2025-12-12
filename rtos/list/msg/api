@@ -1,0 +1,8 @@
+0000B76C msg_init_lists                                           see `initl`
+0001E04C msg_init
+00016B08 msg_dispatch(ptr msg)                                    see `disp`
+00016B9C msg_list_flush                                           see `flush`
+00016D94 msg_init_and_dispatch                                    see `initd`
+00016DC0 msg_power_gate(uint priority /* 1 2 4 8 FF */, ptr msg)  see `power`
+00016F70 msg_priority_gate(uint flags, uint enabled_mask)         see `prior`
+00021888 msg_validate_and_submit                                  see `valid`

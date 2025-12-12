@@ -1,0 +1,14 @@
+# gpio_control_update_field
+
+~ buf[2] != 4 && exit
+
+block_i = buf[5] - 1
+~ block_i < 3 || exit
+block = blocks[block_i]
+
+item_i = buf[4]
+~ item_i < 9 || exit
+
+item = block[item_i]
+item.case = buf[6]
+item.cfg = buf[7]

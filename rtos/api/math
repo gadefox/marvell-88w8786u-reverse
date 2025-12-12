@@ -1,0 +1,4 @@
+00000174 mul64(uint a, int b, uint c, int d)
+00000448 sqrt64
+00000BFC mul64_with_shifted_add
+00000C08 mul_ulonglong

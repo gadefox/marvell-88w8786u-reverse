@@ -1,0 +1,16 @@
+# pool_init
+
+~ pool_get(gpool) != 0 && exit
+
+*0400005C = true  # byte
+pool_empty
+memset(04000824, FA, A5)
+
+~ fn_03f014f4(gpool.poolbr, C00013B0, 04000824, FA, 4) != 0 && exit
+
+~ pool_thread_init(gpool) != 0 && exit          see `thread/code/init`
+~ pool_sema_init(gpool) != 0 && exit            see `sema/code/init`
+~ pool_block_init(gpool) != 0 && exit           see `block/code/init`
+~ pool_event_flags_init(gpool) != 0 && exit     see `evtf/code/init`
+~ pool_?_init(gpool) != 0 && exit               see `pool?/code/init`
+~ pool_queue_init(gpool) != 0 && exit           see `queue/code/init`

@@ -1,0 +1,10 @@
+# usb_pool_ep2_tx_et_al_free_slot
+
+***
+struct = ptr & ~FF
+struct.field10 = 1
+pool_slot_free(struct + 4)
+
+~ struct.pool == 04000104:
+  evt_ctx = C9991158
+  evt_dispatch(evt_ctx.usb, 14h, sp)  # stack pointer

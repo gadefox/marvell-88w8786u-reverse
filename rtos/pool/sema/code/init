@@ -1,0 +1,16 @@
+pool = gpool.pools
+~ tx_semaphore_create(pool.sema, "OSA_Sema", 1) != 0 && exit(1)
+
+pool.alloc_count = 0
+pool.created_count = 0
+pool.free_head = pool.nodes
+pool.used_tail = null
+
+node = pool.nodes
+for i in 0..12:
+  node.next = node + 24h
+  node = node.next
+}
+node.next = null
+
+exit(0)

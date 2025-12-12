@@ -1,0 +1,18 @@
+# pool_init
+
+pool.cfgs = cfgs
+pool.slots = slots
+pool.num_slots = 0
+
+for i in 0..pool.num_cfgs - 1
+  cfg = cfgs[i]
+
+  size = (cfg.block_size + 4) * cfg.num_blocks
+  ret = pool_block_alloc(cfg.block, 9, desc, size, cfg.block_size)
+  ~ ret != 0 && exit(1)
+
+  pool.num_slots += cfg.num_blocks
+  desc += size
+
+pool_slot_empty(pool)
+exit(0)

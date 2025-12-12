@@ -1,0 +1,43 @@
+# gpio_control_serialize
+
+# first packet
+packet = (packet)buf
+packet.task = 8
+packet.action = 1
+packet.size = 6
+buf += 4
+# +4 bytes
+
+for block_i in 0..2:
+  block = blocks[block_i]
+  item = block[0]
+  packet.payload[block_i * 2] = item.block
+  packet.payload[block_i * 2 + 1] = item.gpio
+  buf += 2
+# +6 bytes
+
+for block_i in 0..2:
+  block = blocks[block_i]
+  for item_i in 0..8:
+    item = block[item_i]
+
+    # next packet
+    packet = (packet)buf
+    packet.task = 9    # byte
+    packet.action = 1  # byte
+    packet.size = 4    # word
+    packet.payload[0] = item_i
+    packet.payload[1] = item.block
+    packet.payload[2] = item.case
+    packet.payload[3] = item.cfg
+    buf += 8
+  # +72 bytes
+# +216 bytes
+
+packet = (packet)buf
+packet.task = FF
+packet.action = FF
+packet.size = 0
+# +4 bytes
+
+# total: 230 bytes

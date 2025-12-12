@@ -1,0 +1,28 @@
+# gpio_control_deserialize_gpios
+
+# is packet empty?
+packet_size = packet.size
+~ packet_size == 0 && exit
+
+buf_size -= 4
+payload_i = 0
+
+while buf_size > 1 && packet_size > 1:
+  block_i = packet.payload[payload_i] - 1
+  ~ block_i < 3:
+    block = blocks[block_i]
+    item = block[0]
+
+    old_gpio = item.gpio
+    new_gpio = packet.payload[payload_i + 1]
+
+    ~ (new_gpio == 18 || new_gpio != old_gpio) && old_gpio != 18:
+      gpio_control_callback(old_gpio)  # see `callback`
+    
+    for item_i in 0..8:
+      item = block[item_i]
+      item.gpio = new_gpio
+  
+  buf_size -= 2
+  packet_size -= 2
+  payload_i += 2

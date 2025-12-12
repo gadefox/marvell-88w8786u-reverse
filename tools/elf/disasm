@@ -1,0 +1,13 @@
+#!/bin/rc
+
+. /usr/local/libexec/rc/util
+dir = `(dirname $0)
+bin = $dir/../extract/bin
+
+echo 'Note that `objdump` is unsuitable for disassembling this code.'
+echo 'It will be unaware of the transitions between ARM/thumb code, and data.'
+exit 1
+
+asm = `(newdir asm $dir)
+arm-none-eabi-objdump -D -b binary -m arm --adjust-vma=0x00000000 $bin/1002 > $asm/1002
+exit 0

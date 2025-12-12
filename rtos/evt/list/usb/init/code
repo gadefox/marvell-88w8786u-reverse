@@ -1,0 +1,7 @@
+# event.init
+
+usb_dma_init(2)
+usb_ctx_set_handler(0000CA04, 000003FF)
+
+usb_alloc_and_submit_tx_transfer(1)
+while usb_alloc_and_submit_tx_transfer(2) != null

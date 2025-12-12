@@ -1,0 +1,6 @@
+# event.handler20
+
+~ status == 1 && list_append(040034E8, node)  # EP1-TX
+~ status == 4 && list_append(040034D4, node)  # EP2-TX
+
+calls external function @03F01FC8
