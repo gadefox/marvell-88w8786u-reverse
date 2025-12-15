@@ -69,21 +69,14 @@ fn trcon {
   }
 }
 
-fn ddp45 {
-  file = $dir/../../p45/fw
-  ddbin 0 4008 183660
-  ddbin 1 0 864
-  ddbin 2 864 3144
-}
+# ddbin 0 4008 183660
+# ddbin 1 0 864
+# ddbin 2 864 3144
 
-fn ddp48 {
-  file = $dir/../../firmware/usb8786_uapsta.bin
-  ddbin 0 0 183740
-  ddbin 1 183740 860
-  ddbin 2 184600 3148
-}
-
-ddp48
+file = $dir/../../firmware/usb8786_uapsta.bin
+ddbin 0 0 183740
+ddbin 1 183740 860
+ddbin 2 184600 3148
 
 echo
 ddaes s-box 171924 256

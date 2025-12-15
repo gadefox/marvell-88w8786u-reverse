@@ -1,5 +1,0 @@
-ARM core (MCU)
-    ↓ (memory-mapped I/O)
-Serial controller @90000800
-    ↓ (SPI/I2C pin)
-External devices (e.g. EEPROM, sensors)

@@ -1,5 +1,5 @@
-00014018 list_mergeptr list1, ptr list2)    see `merge`
-000147FC list_remove_head(ptr list)         see `remove`
+00014018 list_merge(ptr list1, ptr list2)       see `merge`
+000147FC list_remove_head(ptr list)             see `remove`
 0001D762 list_get_head
-0001FCDA list_append(ptr list, ptr node)    see `append`
-0001FD14 list_prepend(ptr list, ptr node)   see `preppend`
+0001FCDA list_append(ptr list, ptr node)        see `append`
+0001FD14 list_prepend(ptr list, ptr node)       see `preppend`

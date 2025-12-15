@@ -34,7 +34,7 @@ def usb_release(dev: usb.core.Device):
   except usb.core.USBError as e:
     error(str(e))
 
-def send_stub(dev: usb.core.Device, seqnum: int, offset: int):
+def call_stub(dev: usb.core.Device, seqnum: int, offset: int):
   try:
     data = struct.pack("<1I5H", fw_magic, 0x97, 10, seqnum, 0, offset)
     dev.write(usb_ep, data, timeout=100)
@@ -51,9 +51,9 @@ def main():
   seqnum = 0
   dev = usb_init()
   if dev != None:
-    seqnum = send_stub(dev, seqnum, 0)
+    seqnum = call_stub(dev, seqnum, 0)
     for block in range(256):
-      seqnum = send_stub(dev, seqnum, block)
+      seqnum = call_stub(dev, seqnum, block)
     usb_release(dev)
 
 main()
