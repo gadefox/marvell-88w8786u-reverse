@@ -1,1 +1,3 @@
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/net/wireless/marvell/mwifiex
+git clone --depth 1 --filter=blob:none --sparse https://github.com/torvalds/linux.git
+cd linux
+git sparse-checkout set drivers/net/wireless/marvell/mwifiex include/net
