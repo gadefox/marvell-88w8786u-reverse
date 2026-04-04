@@ -1,0 +1,35 @@
+# timer_insert_node
+
+timer_hw_clear_status
+
+mngr = C00011A8
+node = mngr.free_list 
+~ node == null && exit
+
+mngr.free_list = node.next
+~ ++mngr.id_counter == 0 && mngr.id_counter = 1
+
+node.callback = callback
+node.userdata = userdata
+node.ticks = ticks
+node.id = mngr.id_counter
+node.next = null
+
+ticks = timer_hw_get_elapsed_neg
+timer_adjust_deltas(mngr.active_list, ticks)
+
+pnode = &mngr.active_list
+cur = mngr.active_list
+
+while cur != null and cur.ticks < ticks:
+  pnode = &cur.next
+  cur = cur.next
+
+*pnode = node
+node.next = cur
+
+~ mngr.active_list != null:
+  ticks = set_hw_deadline(mngr.active_list.ticks)
+  mngr.last_ticks = ticks
+
+exit(node.id)

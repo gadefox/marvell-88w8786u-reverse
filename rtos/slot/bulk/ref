@@ -1,0 +1,12 @@
+00002D90 usb_pool_data_tx_reset: calls pool_slot_num_allocated
+0000BB00 
+0000BD34 usb_pool_data_tx_check_integrity1: calls pool_slot_num_allocated
+0000BDE0 calls pool_slot_num_allocated
+0000D2FC usb_pool_data_tx_check_integrity2: calls pool_slot_num_allocated
+0001A9E0
+0001E1C8 usb_pool_data_tx_check_integrity3: calls pool_slot_num_allocated
+0001E264 usb_pool_data_tx_check_integrity4: calls pool_slot_num_allocated
+00020560 04000104_init: calls pool_slot_get_total_capacity
+00025EC8 usb_alloc_and_submit_tx_transfer: calls pool_slot_alloc(_, *C0002676, 0)
+0002697C usb_evt.dispatch: calls pool_slot_count_by_tag(_, 2 or 4)
+00027AA8 init

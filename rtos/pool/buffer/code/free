@@ -1,0 +1,5 @@
+# pool_buffer_free
+
+~ type == 10 && ret = fn_03f016c8(node) || ret = fn_03f01314(node)
+~ ret != 0 && { ~ ret != 16 && ret = 1 || ret = 3 }
+exit(ret)

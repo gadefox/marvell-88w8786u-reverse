@@ -1,0 +1,6 @@
+addr     struct sizeof handler  irq note
+C0001328 defc   08     0002552C 05  related to a timer
+C0001330 defc   08     000275E0 0A
+C0001338 defc   08     000275C9 0C
+----
+C0001340 eod

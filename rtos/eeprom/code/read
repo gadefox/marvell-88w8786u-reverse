@@ -1,0 +1,2 @@
+~ cache != 0 && return eeprom_swap(C001D5FC[addr])
+return serial_read(addr)

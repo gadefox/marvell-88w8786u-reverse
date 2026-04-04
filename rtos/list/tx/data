@@ -1,0 +1,6 @@
+addr     struct sizeof node note
+040034D4 list   14h    slot data packets
+040034E8 list   14h    slot command packets
+040034FC evt    2C          wlan event handler
+----
+04003528 eod

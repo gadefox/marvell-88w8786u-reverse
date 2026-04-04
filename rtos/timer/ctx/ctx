@@ -1,0 +1,6 @@
++00 uint id_counter
++04 node active_list
++08 node free_list
++0C uint last_ticks
+----
+ 10 sizeof

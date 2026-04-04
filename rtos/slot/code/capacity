@@ -1,0 +1,10 @@
+# pool_slot_get_total_capacity
+# returns sum of all block counts across configs
+
+total = 0
+
+for cfg_i 0..pool.num_cfgs - 1
+  cfg = pool.cfgs[cfg_i]
+  total += cfg.num_blocks
+
+exit(total)

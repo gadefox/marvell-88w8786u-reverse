@@ -1,0 +1,24 @@
+# pool_slot_alloc
+
+for cfg_i 0..pool.num_cfgs - 1
+  cfg = pool.cfgs[cfg_i]
+
+  ret = fn_03f01000(cfg.block, slot, flags)
+  ~ ret == 0:
+    slot.alloc_size = size
+    slot.data_offset = 18h
+    slot.pool = pool
+    slot.tag = 0
+    slot.next = null
+    slot.field6 = 0
+    slot.fieldE = 0
+
+    slots = pool.slots
+    for slot_i 0..pool.num_slots - 1
+      ~ slots[slot_i] != null && continue
+      slots[slot_i] = slot
+      exit
+
+    assert  # slots full
+  ret != 16:
+    break

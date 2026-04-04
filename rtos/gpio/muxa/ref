@@ -1,0 +1,3 @@
+0000A91C gpio_init
+00017C04 gpio_init_output_altfunc3
+00017C60 gpio_init_output_and_set

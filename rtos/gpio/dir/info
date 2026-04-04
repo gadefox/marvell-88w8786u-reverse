@@ -1,0 +1,3 @@
+GPIO direction
+1 bit per GPIO
+1=input 0=output

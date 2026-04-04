@@ -1,0 +1,15 @@
+# evt_list_node_init
+
+ctx = C00011E0   # list event node context
+ctx.handler = null
+
+node = 040034FC  # list event node
+node.name = ctx.name
+node.init = null
+node.handler14 = null
+node.handler18 = null
+node.handler1C = null
+node.handler20 = 0002816C
+node.dispatch = 0002809C
+
+evt_list_append_node(node)

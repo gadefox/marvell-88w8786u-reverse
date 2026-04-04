@@ -1,0 +1,8 @@
+0000A8D8 gpio_init(byte gpio, bool output)
+00017B70 gpio_init_output_altfunc3(byte gpio, byte config1, byte config2)
+00017C20 gpio_init_output_and_set(byte gpio, bool set)
+00017C08 gpio_9000024c_set0_3(byte config)
+00017C64 gpio_9000024c_set4_7(byte config)
+00017D1C gpio_init_input(byte gpio)
+0001B168 gpio_config_input(byte gpio, bool bit1, bool bit2)
+0001C894 gpio_set_output(byte gpio, bool set)

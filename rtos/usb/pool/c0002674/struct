@@ -1,0 +1,16 @@
++00 byte
++01 byte dispatch_lock
++02 word ep2_tx_size        EP2-TX pool slot size
++04 word field04
++06
++0A word field0A
++10 uint count10
++14 uint count14
++18 uint
++1C ptr  field1C
++20 uint field20
++24
++28 ptr  field28
++2C ptr  field2C
++30 ptr  cmd_resp_payload
++34

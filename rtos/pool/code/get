@@ -1,0 +1,8 @@
+# pool_get
+
+*04000064 = 04000920
+*gpool = 04000920
+
+status = *0400005C  # byte
+~ status != 0 && status = 1
+exit(status)

@@ -1,0 +1,45 @@
+0400005C OSA_Sema lock state
+04000064 queue pool
+04000084 callback function
+040000EC struct
+04000100 data ($Id)
+04000104 pool1
+04000124 config1
+04000140 pool2
+04000160 config2
+0400017C pool3
+0400019C config3
+040001B8 pool4
+040001D8 config4
+040001F3 config4
+04000210 pool5
+04000230 config5
+0400024C pool6
+0400026C config6
+04000288 pool7
+040002A8 config7
+040002C4 pool8
+040002E4 config8
+04000300 pool9
+04000320 config9
+0400033C pool10
+0400035C config10
+04000378 slots5
+0400037C slots6
+04000384 slots9
+04000388 slots10
+040004CC struct (bit masks)
+04002F10 slots1
+04002F80 slots2
+04002F90 slots3
+04002FA0 slots4
+04002FB4 slots7
+04002FC0 slots8
+04002EE0 event
+040034D4 list
+040034E8 list
+040034FC event
+04003800 serial
+040038C0 tree
+0400399C timer
+040039C8 timer

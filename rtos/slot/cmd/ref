@@ -1,0 +1,5 @@
+0000FAB4
+00010CF8
+00011608
+00025EC4 usb_alloc_and_submit_tx_transfer: calls pool_slot_alloc(_, 2000, 0)
+00027B08 init

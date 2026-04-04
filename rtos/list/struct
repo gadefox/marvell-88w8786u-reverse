@@ -1,0 +1,7 @@
++00 node head               node head in linked list
++04 node tail               node tail in linked list
++08 uint num_nodes          number of nodes in linked list
++0C uint max_count          high water mark (peak count)
++10 uint min_count          low water mark (minimum count)
+----
+ 14h sizeof

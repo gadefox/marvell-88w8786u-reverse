@@ -1,0 +1,11 @@
+# msg_validate_and_submit
+
+~ msg == null && exit(1)
+~ msg.state != 1 && exit(0)
+
+command = le32_to_cpu(msg.command)
+~ command == 3:
+  ~ (04000440 & 8) == 0 && exit(1)
+  msg_power_gate(4, msg)
+  
+exit(0)

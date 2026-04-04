@@ -1,0 +1,6 @@
++00 byte lednum     (0..2)
++01 byte gpio       (0..15); 18=disabled
++02 byte behavior   switch case; see `code/dispatch`
++03 byte config     GPIO register (e.g. 9000024C)
+----
+ 04 sizeof

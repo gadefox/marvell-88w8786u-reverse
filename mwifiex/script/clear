@@ -1,0 +1,17 @@
+#!/bin/rc
+
+dir = $HOME/.build/mwifiex
+echo src=$dir
+
+rm -f $dir/*.cmd
+rm -f $dir/.*.cmd
+rm -f $dir/*.d
+rm -f $dir/.*.d
+rm -f $dir/*.ko
+rm -f $dir/*.mod
+rm -f $dir/.*.o
+rm -f $dir/*.o
+rm -f $dir/*.order
+rm -f $dir/*.symvers
+
+exit 0

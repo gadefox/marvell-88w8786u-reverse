@@ -1,0 +1,1 @@
+00008040 queue_create(ptr queue, byte[] name, uint size /* 4 */, uint num_msgs /* 5 */, byte[] buffer); see `code`

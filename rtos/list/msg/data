@@ -1,0 +1,7 @@
+addr     struct sizeof node note
+C001D4E8 list   14h    msg  available/unused message nodes ready for allocation
+C001D4FC list   14h    msg  messages that are being prepared or staged before becoming pending
+C001D510 list   14h    msg  messages queued and ready to be dispatched/flushed
+C001D524 msg[6] C0
+----
+C001D5E4 eod

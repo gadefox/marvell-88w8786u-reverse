@@ -1,0 +1,2 @@
+00007FAC pool_buffer_alloc(ptr pool, uint type /* 10 */, uint size, ptr* node, undef arg /* 0 */); see `alloc`
+00007FD2 pool_buffer_free(ptr pool, uint type /* 10 */, ptr node); see `free`

@@ -1,0 +1,3 @@
+GPIO0-7 output enable
+2 bits per GPIO
+0=default 1=output 2/3=alt func (e.g. UART, blink, ..)

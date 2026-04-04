@@ -1,0 +1,10 @@
++00 ptr  next node in linked list
++04 ptr  callback
++08 byte state
++09 byte field09
++0A word field0A
++0C uint command
++10 word field10
++12
+----
+ 20h sizeof

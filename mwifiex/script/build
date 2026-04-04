@@ -1,0 +1,18 @@
+#!/bin/rc
+
+dir = $HOME/.build/mwifiex
+echo src=$dir
+
+kernel = `(uname -r)
+echo kernel=$kernel
+
+make -C /lib/modules/$kernel/build M=$dir modules
+
+echo
+echo strip debug info
+objcopy --strip-debug $dir/mwifiex.ko
+objcopy --strip-debug $dir/mwifiex_pcie.ko
+objcopy --strip-debug $dir/mwifiex_sdio.ko
+objcopy --strip-debug $dir/mwifiex_usb.ko
+
+exit 0

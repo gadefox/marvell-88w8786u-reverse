@@ -1,0 +1,4 @@
+git clone --depth 1 --filter=blob:none --sparse https://github.com/torvalds/linux.git
+cd linux
+git sparse-checkout set drivers/net/wireless/marvell/mwifiex include/net
+git fetch --depth=1 origin tag v6.11

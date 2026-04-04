@@ -1,0 +1,5 @@
++00 uint allocated count
++04 uint created count
++08 ptr  sema               ThreadX semaphore
+----
+ 0C sizeof

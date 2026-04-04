@@ -1,0 +1,11 @@
+# usb_dispatch_handler
+
+***
+~ ep == 0:
+  usb_setup_handler(0, rx/tx, buffer, length)
+!~:
+  ctx = 04000068
+  ev_type = rx/tx ? 200h : 100h
+  ev_arg = (size << 16) | ep
+  ctx.handler(ev_type, ev_arg, buffer)  # TX (IN)
+***

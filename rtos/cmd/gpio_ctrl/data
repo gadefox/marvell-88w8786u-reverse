@@ -1,0 +1,9 @@
+addr     struct sizeof
+C0001500 uint   04
+C0001504 uint   04
+C0001508 uint   04
+C000150C led0   24h
+C0001530 led1   24h
+C0001554 led2   24h
+----
+C0001578 eod

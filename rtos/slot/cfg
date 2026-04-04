@@ -1,0 +1,6 @@
++14 ptr  block
++18 word block_size
++1A byte num_blocks
++1B byte
+----
+ 1C sizeof

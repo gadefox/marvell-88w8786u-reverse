@@ -1,0 +1,9 @@
++000 poolq  query
++1F4 poolt  thread
++6B8 pool3  [not used]
++878 pools  sema
++A78 poole  evtf
++C88 poolbr buffer
++CBC poolbk block
+----
+11F0 sizeof

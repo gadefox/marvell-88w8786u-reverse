@@ -1,0 +1,9 @@
+# pool_buffer_alloc
+
+~ type == 10:
+  ret = fn_03f01398(pool, node_ret, size, arg)
+!~:
+  ret = fn_03f01000(pool, node_ret, arg)
+
+~ ret != 0 && { ~ ret != 16 && ret = 1 || ret = 3 }
+exit(ret)

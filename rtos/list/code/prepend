@@ -1,0 +1,12 @@
+# list_prepend
+    
+~ list == null && exit
+~ node == null && exit
+
+~ list.head == null && list.tail = node
+
+node.next = list.head
+list.head = node
+
+list.num_nodes++
+~ list.max_count < list.num_nodes && list.max_count = list.num_nodes

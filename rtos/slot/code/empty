@@ -1,0 +1,5 @@
+# pool_slot_empty
+
+slots = pool.slots
+for i in 0..pool.num_slots - 1
+  slots[i] = null

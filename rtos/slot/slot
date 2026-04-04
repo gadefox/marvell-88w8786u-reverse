@@ -1,0 +1,12 @@
++00 ptr  next node in linked list
++04 word alloc_size
++06 word field6
++08 word data_offset    relative offset to locate node's payload or data section
++0A word fieldA
++0C word tag            related to event status flags
++0E word status
++10 ptr  pool
++14 uint field14
++18
++1C ptr
++20

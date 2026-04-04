@@ -1,0 +1,6 @@
+00000000 - 0002FFFF  192 KiB  SRAM; firmware, data
+03F00000 - 03F04FFF  20 KiB   ROM (e.g. bootloader, ThreadX lib)
+04000000 - 04005FFF  24 KiB   SRAM; stack
+80000000 - 8000FFFF  64 KiB   IO memory 1 (e.g. USB)
+90000000 - 9000BFFF  48 KiB   IO memory 2 (e.g. GPIO, SPI)
+C0001100 - C0027FFF  160 KiB  SRAM; code, data, bss, heap

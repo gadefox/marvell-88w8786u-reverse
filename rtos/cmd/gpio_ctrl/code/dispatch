@@ -1,0 +1,30 @@
+# gpio_control_dispatch
+
+for led_i in 0..2:
+  led = leds[led_i]
+  state = led.states[state_i]
+  ~ state.gpio >= 18 && continue
+
+  *C0001504 = state_i
+
+  switch (state.behavior)
+    case 0:  # 00017CC0
+      gpio_init_output_and_set(state.gpio, *C0001500 != 0)
+    case 1:  # 00017CAC
+      gpio_init_output_and_set(state.gpio, *C0001500 == 0)
+    case 2:  # 00017CCA
+      gpio_init_output_altfunc3(state.gpio, state.config >> 4, state.config & 0F)
+    case 3:  # 00017CDE
+      gpio_9000024C_set0_3(state.config & 0F)
+    case 4:  # 00017CD6
+      gpio_9000024C_set4_7(state.config >> 4)
+    case 5:  # 00017D02
+      gpio_9000024C_set0_3(state.config & 0F)
+      gpio_9000024C_set4_7(state.config >> 4)
+    default: # 00017CE6
+      continue
+
+  exit
+
+# no valid GPIO found for any LED at this state index
+~ state_i in (0 6 7) && *C0001508 = state_i

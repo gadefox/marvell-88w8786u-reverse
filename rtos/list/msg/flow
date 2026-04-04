@@ -1,0 +1,29 @@
+new message arrives
+        ↓
+move temporary → pending
+        ↓
+dispatch current message
+        ↓
+process all pending messages
+        ↓
+for each pending message:
+ ├─ remove from pending list C001D510
+ ├─ copy data
+ ├─ return node to free list C001D4E8
+ └─ dispatch (flushing mode)
+        ↓
+state 0: uninitialized
+ ├─ merge queues
+ ├─ process message
+ └─ flush all pending
+        ↓
+state 3: BUSY
+ ├─ queue all incoming messages
+ └─ don't process yet
+        ↓
+state 2: NORMAL
+ ├─ check priority
+ ├─ queue or callback
+ ├─ dispatch events
+ ├─ GPIO control
+ └─ process message

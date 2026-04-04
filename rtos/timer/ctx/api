@@ -1,0 +1,4 @@
+0000d4f8 timer_adjust_deltas(ptr node, int ticks)                   see `adjust`
+00014048 timer_unlink_node(ptr pnode)                               see `unlink`
+00019960 timer_insert_node(ptr callback, undef userdata, int ticks) see `insert`
+000199F0 timer_find_and_unlink_by_id(uint id)                       see `find`

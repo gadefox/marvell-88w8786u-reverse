@@ -1,0 +1,2 @@
+WPA/WPA2 key-processing context – a per-station crypto state block used during
+the 4-Way Handshake and Group Key Handshake.

@@ -1,0 +1,2 @@
+00018A26 evt_dispatch(ptr event, uint command, undef userdata)        see `disp24/code`
+00018AD4 evt_handle20(ptr event, undef arg1, undef arg2, undef arg3)  see `hand20/code`

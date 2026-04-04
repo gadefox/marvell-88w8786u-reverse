@@ -1,0 +1,6 @@
+# gpio_init_all_by_state
+
+addr = *04003304
+gpio_init_by_state(false, addr[23E])
+gpio_init_by_state(true, addr[23F])
+*C00028E5 = 2

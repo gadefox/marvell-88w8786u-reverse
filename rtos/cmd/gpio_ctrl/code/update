@@ -1,0 +1,16 @@
+# gpio_control_update_field
+
+~ buf[2] != 4 && exit
+
+# get led
+led_i = buf[5] - 1
+~ led_i in (0..2) || exit
+led = leds[led_i]
+
+# get state
+state_i = buf[4]
+~ state_i in (0..8) || exit
+
+state = led.states[state_i]
+state.behavior = buf[6]
+state.config = buf[7]

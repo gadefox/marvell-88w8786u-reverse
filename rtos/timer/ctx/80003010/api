@@ -1,0 +1,3 @@
+00023B08 timer_hw_set_deadline
+00023B50 timer_hw_clear_status
+000198C4 timer_hw_apply_mode

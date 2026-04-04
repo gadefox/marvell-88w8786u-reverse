@@ -1,0 +1,6 @@
+addr     struct   sizeof
+C001CAC0 node1[2] 30h
+C001CAF0 list     14h
+C001CB04 list     14h
+----
+C001CB18 eod

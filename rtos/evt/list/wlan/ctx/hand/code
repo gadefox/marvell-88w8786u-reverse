@@ -1,0 +1,9 @@
+# evt_wlan.handler
+
+~ status == 5:
+  ***  # wlan
+~ stauts != 2 && status != 3:
+  exit
+
+ctx = C0001158                                  # events context
+evt_handle20(ctx.usb, param2, param3, status)

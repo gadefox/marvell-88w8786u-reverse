@@ -1,0 +1,3 @@
+00018A48 evt_list_find_and_init
+00018A9C evt_list_append_node
+0001AA70 evt_list_find_usb_and_init

@@ -1,0 +1,12 @@
++00 uint[4]   mic_key           key used to compute/verify the MIC of EAPOL-Key messages
++10 uint[44]  aes_expanded_key  AES key schedule used by key-wrap / decrypting Key Data fields
++C0 byte[20h] gtk               Group Temporal Key extracted from Key Data
++E0 word      key_info          cached Key Info flags from the EAPOL-Key header (Install/Secure/Ack/etc.)
++E2
++E4 uint      replay_ctr        protection against replayed EAPOL-Key messages
++E8 word      keyid             GTK index (0/1)
++EA
++EC uint      timer_flag        internal handshake timeout/cleanup triggers
++F0 uint      timer1
++F4 byte[2?]  workspace         scratch RAM used during AES/key-wrap operations
++F6

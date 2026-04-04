@@ -1,0 +1,27 @@
+# gpio_control_deserialize
+
+while true:
+  ~ size == 0 && gpio_control_dispatch(*C0001504); exit
+  ~ size < 4 && break
+
+  ~ packet.action == 1:
+    switch packet.task:
+      case 8:
+        gpio_control_deserialize_gpios
+      case 9:
+        gpio_control_update_field
+
+  # next packet
+  size -= packet.size + 4  # sizeof(header)
+  packet++
+
+----
+[receiving packet]
+            ↓
+gpio_control_deserialize
+ ├─ packet: action=1 task=8 → gpio_control_deserialize_gpios
+ └─ packet: action=1 task=9 → gpio_control_update_field
+            ↓
+[GPIO configuration updated in memory]
+            ↓
+gpio_control_dispatch(*C0001504)

@@ -1,0 +1,22 @@
+#!/bin/rc
+
+addr = 03F00000
+
+. /usr/local/libexec/rc/util
+dir = `(dirname $0)
+inp = $dir/../extract/block/0
+out = `(newdir out $dir)
+
+echo -n $addr | rev | sed -E 's/(.)(.)/\2\1/g' | xxd -r -p > $out/addr
+xxd -r -p $dir/instr > $out/instr
+
+dd if=$inp of=$out/begin bs=1 skip=86080 count=318
+dd if=$inp of=$out/end bs=1 skip=86432 count=156
+cat $out/begin $out/instr $out/addr $out/end > $out/block
+
+crc = `($dir/../crc/out/calc $out/block)
+echo -n $crc | xxd -r -p > $out/crc
+
+dd if=$inp of=$out/begin bs=1 count=86398
+dd if=$inp of=$out/end2 bs=1 skip=86592
+cat $out/begin $out/instr $out/addr $out/end $out/crc $out/end2 > $out/0

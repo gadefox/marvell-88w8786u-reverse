@@ -1,0 +1,10 @@
+# msg_list_flush
+# sizeof(node) = 20h
+
+while true:
+  node = list_remove_head(C001D510)
+  ~ node == null && break
+
+  memcpy(msg, node, sizeof(node))
+  list_append(C001D4E8, node)
+  msg_dispatch(msg)

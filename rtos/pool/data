@@ -1,0 +1,15 @@
+addr     struct       sizeof node
+0400005C byte         1      see `status`
+04000064 ptr          4      =04000920
+
+04000824              FA     global pool
+0400091E
+04000920 poolq        1F4    queue
+04000B14 poolt        4C4    thread
+04000FD8 pool3        1C0    not used
+04001198 pools        200h   sema
+04001398 poole        210h   evtf
+040015A8 poolbr       3C     buffer
+040015DC poolbk       534h   block
+----
+04001B10 eod

@@ -1,0 +1,7 @@
++00 word       size    block size in bytes
++02 byte
++03 byte
++04 uint       addr    next block address or FFFFFFFF for the last block
++08 byte[size] data    block data
+----
+size+8 sizeof

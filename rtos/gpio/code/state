@@ -1,0 +1,43 @@
+# gpio_init_by_state
+# param1 bool
+# param2 in (0 1 2)
+
+state = *C000159C != 0 ? *C001D8EC : ' '  # value from EEPROM
+switch state:
+  case 0:
+    !~ param1:
+      *8000A7E4 = 00010102
+      *8000A7E8 = 00020201
+
+    gpio_init(5, true)  # output
+    gpio_init(6, true)  # output
+    gpio_set_output(5, param2 != 1)
+    gpio_set_output(6, param2 == 1)
+
+  case ' ':
+    ~ param1:
+      *8000A7E8 = param2 == 1 ? 00010102 : 00020201
+    !~ param1:
+      *8000A7E4 = param2 == 1 ? 00020201 : 00010102
+
+  case '!':
+    *8000A7E4 = param2 == 1 ? 00010102 : 00020201
+    *8000A7E8 = param2 == 1 ? 00020201 : 00010102
+
+    gpio_init(5, param2 != 1)
+    gpio_init(6, param2 == 1)
+    gpio_set_output(param_1 == 1 ? 6 : 5, false)
+
+  case '`':
+    !~ param1:
+      *8000A7E4 = 00010102
+      *8000A7E8 = 00020201
+
+    gpio_init(4, true)  # output
+    gpio_init(5, true)  # output
+    gpio_init(6, true)  # output
+    gpio_init(7, true)  # output
+    gpio_set_output(4, param2 == 2)
+    gpio_set_output(5, param2 == 0)
+    gpio_set_output(6, param2 != 0)
+    gpio_set_output(7, param2 != 2)

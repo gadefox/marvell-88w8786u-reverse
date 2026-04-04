@@ -1,0 +1,7 @@
++000 head
++00C node[17] nodes
++518
++52C node tail of allocated list
++530 node head of free list
+----
+ 534h sizeof

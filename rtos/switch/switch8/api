@@ -1,0 +1,2 @@
+00000C14 switch8(switch8 table, byte index /* r3 */)    see `switch`
+0000E6A0 switch8_dispatch(byte index)                   see `disp`

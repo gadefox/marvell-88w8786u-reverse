@@ -1,0 +1,20 @@
+# queue_create
+
+queue.msg_size = size
+
+~ buffer == null:
+  queue.alloc_type = 0
+
+  ret = pool_buffer_alloc(gpool.poolbr, 10, num_msgs * size, queue.buffer, 0)
+  ~ ret != 0:
+    pool_buffer_free(gpool.poolbr, 10, queue.buffer)
+    queue.buffer = null
+
+    exit(ret)
+!~:
+  queue.alloc_type = 1
+  queue.buffer = buffer
+
+ret = fn_03f031c4(queue, name, 1, queue.buffer, num_msgs * size)
+~ ret != 0 && { ~ ret != 16 && ret = 1 || ret = 3 }
+exit(ret)

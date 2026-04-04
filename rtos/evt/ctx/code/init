@@ -1,0 +1,7 @@
+# evt_usb_wlan_init
+
+ctx = C0001158                                      # events context
+ctx.wlan = evt_list_find_and_init("wlan", 0)
+
+evt_usb_init
+~ ctx.usb != null && evt_dispatch(ctx.usb, 0D, 0)

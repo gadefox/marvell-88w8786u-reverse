@@ -1,0 +1,7 @@
+# msg_init_and_dispatch
+
+~ *C001B24C == 3 && exit  # byte
+*C001B24C = 3
+
+msg_init(tmp)
+msg_dispatch(tmp)

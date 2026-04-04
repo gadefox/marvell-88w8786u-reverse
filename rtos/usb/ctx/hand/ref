@@ -1,0 +1,3 @@
+00011968 usb_set_config_handler: calls *04000084(4, 0, null)
+00021C7C usb_dispatch_handler: calls *04000084(rx/tx ? 200h : 100h, (size << 16) | ep, buffer)
+00021CD8 usb_setup_handler: calls *04000084(80h, 0400008C /* spkt */, null)

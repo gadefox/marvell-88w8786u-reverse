@@ -1,0 +1,24 @@
+# timer_irq_handler
+
+timer_hw_clear_status
+ticks = timer_hw_get_elapsed_neg
+timer_hw_apply_mode
+
+mngr = C00011A8
+~ ticks < mngr.last_ticks && ticks--
+timer_adjust_deltas(mngr.active_list, ticks)
+
+while true:
+  node = mngr.active_list
+  ~ node == null && mngr.last_ticks = 0
+
+  ~ node.ticks != 0:
+    ticks = timer_hw_get_elapsed_neg
+    timer_adjust_deltas(mngr.active_list, ticks)
+
+    ticks = timer_hw_set_deadline(mngr.active_list.ticks)
+    mngr.last_ticks = ticks
+    exit
+
+  ~ node.callback != null && node.callback(node.id, node.userdata)
+  timer_unlink_node(mngr.active_list)
